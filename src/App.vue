@@ -1,5 +1,4 @@
 <template>
-  <h1>Nuestro primer componente VUE JS</h1>
   <Car />
 </template>
 
