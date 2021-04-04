@@ -1,13 +1,19 @@
 <template>
-  <Car />
+    <div>
+        <CarOptions />
+        <hr>
+        <CarComposition />
+    </div>
 </template>
 
 <script>
-import Car from './components/Car';
+import CarComposition from './components/CarComposition';
+import CarOptions from './components/CarOptions';
 
 export default {
     components: {
-        Car
+        CarComposition,
+        CarOptions
     }
 }
 </script>
