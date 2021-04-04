@@ -4,8 +4,17 @@
         <h2>Coche</h2>
         <p>Marca {{ brand }}</p>
         <p>Model {{ model }}</p>
-        <p>Color {{ color }}</p>
-        <p>Color 1 {{ color[0] }}</p>
+        <p>Colors
+            <span v-for="(color, index) in colors" :key="index">
+                - {{ index }}: {{ color }}
+            </span>
+        </p>
+        <ul>
+            <li v-for="(color, index) in colors" :key="index">
+                {{ index }}: {{ color }}
+            </li>
+        </ul>
+        <p>Color 1 {{ colors[0] }}</p>
         <p>Price {{ price }}</p>
         <p>Power {{ power }}</p>
         <p>Mensaje como objeto <b>{{ mensaje }}</b></p>
@@ -19,7 +28,7 @@ export default {
     setup() {
         const brand = 'Audi';
         const model = "A4";
-        const color = ["Azul", 'Rojo', 'Verde'];
+        const colors = ["Azul", 'Rojo', 'Verde'];
         const price = 38000;
         const power = 180;
         const mensaje = {
@@ -27,11 +36,10 @@ export default {
             text: 'Adiós',
         };
 
-
         return {
             brand,
             model,
-            color,
+            colors,
             price,
             power,
             mensaje
