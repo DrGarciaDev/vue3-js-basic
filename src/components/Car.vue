@@ -4,7 +4,20 @@
         <h2>Coche</h2>
         <p>Marca {{ brand }}</p>
         <p>Model {{ model }}</p>
-        <p>Colors
+        <p>Potencias</p>
+        <ul>
+            <!-- <li v-for="(power, index) in powers" :key="index">
+                <template v-if="power < 300">
+                    {{ power }}
+                </template>
+            </li> -->
+            <template v-for="(power, index) in powers" :key="index">
+                <li v-if="power < 280">Urbanas: {{ power }}</li>
+                <li v-else-if="power === 280">Híbrido: {{ power }}</li>
+                <li v-if="power > 300">Carreras: {{ power }}</li>
+            </template>
+        </ul>
+        <!-- <p>Colors
             <span v-for="(color, index) in colors" :key="index">
                 - {{ index }}: {{ color }}
             </span>
@@ -18,7 +31,7 @@
         <p>Price {{ price }}</p>
         <p>Power {{ power }}</p>
         <p>Mensaje como objeto <b>{{ mensaje }}</b></p>
-        <p>Mensaje accediendo a las propiedades del objeto <b>{{ mensaje.title }}</b></p>
+        <p>Mensaje accediendo a las propiedades del objeto <b>{{ mensaje.title }}</b></p> -->
     </div>
 </template>
 
@@ -28,21 +41,23 @@ export default {
     setup() {
         const brand = 'Audi';
         const model = "A4";
-        const colors = ["Azul", 'Rojo', 'Verde'];
-        const price = 38000;
-        const power = 180;
-        const mensaje = {
-            title: 'Hola mundo',
-            text: 'Adiós',
-        };
+        const powers = [60, 80, 120, 160, 200, 280, 300, 390, 540, 500];
+        // const colors = ["Azul", 'Rojo', 'Verde'];
+        // const price = 38000;
+        // const power = 180;
+        // const mensaje = {
+        //     title: 'Hola mundo',
+        //     text: 'Adiós',
+        // };
 
         return {
             brand,
             model,
-            colors,
-            price,
-            power,
-            mensaje
+            powers,
+            // colors,
+            // price,
+            // power,
+            // mensaje
         };
     },
     // // Esta es la forma de la API de opciones u Options API, usada en VUE 2
