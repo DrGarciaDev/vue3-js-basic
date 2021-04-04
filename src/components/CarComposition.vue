@@ -5,25 +5,31 @@
         <p>Model {{ model }}</p>
         <p>Potencia {{ power }}</p>
 
-        <button @click="upPower">Aumentar</button>
-        <button @click="downPower(300)">Disminuir</button>
+        <button @click="upPower(10)">Aumentar</button>
+        <button @click="downPower">Disminuir</button>
     </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
     // Esta es la forma de la API de composición o Composition API usada en VUE 3
     setup() {
         const brand = 'Audi';
         const model = "A4";
-        const power = 60;
+        let power = ref(60);
 
-        const upPower = () => {
+        const upPower = (newPower) => {
             console.log('Aumentando potencia ... ');
+            // power.value ++;
+            // console.log(power.value);
+            power.value = power.value + newPower;
         };
 
-        const downPower = (newPower) => {
-            console.log('Disminuyendo potencia ... ' + newPower);
+        const downPower = () => {
+            console.log('Disminuyendo potencia ... ');
+            power.value --;
         };
 
         return {
