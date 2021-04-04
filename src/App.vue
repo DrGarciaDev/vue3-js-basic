@@ -1,20 +1,23 @@
 <template>
     <div>
-        <CarOptions />
-        <hr>
-        <CarComposition />
+        <Car :power="power" />
     </div>
 </template>
 
 <script>
-import CarComposition from './components/CarComposition';
-import CarOptions from './components/CarOptions';
+import Car from './components/Car';
 
 export default {
     components: {
-        CarComposition,
-        CarOptions
-    }
+        Car,
+    },
+    setup() {
+        let power = 38;
+
+        return {
+            power,
+        };
+    },
 }
 </script>
 
