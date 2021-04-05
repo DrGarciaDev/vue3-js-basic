@@ -1,6 +1,7 @@
 <template>
     <div>
-        <Car :power="power" :upPower="upPower" />
+        <!-- con : se mandan variables y/o funciones, con la @ se pueden mandar fucniones con el custom event emit -->
+        <Car :power="power" :upPower="upPower" @downPower="downPower" />
     </div>
 </template>
 
@@ -16,13 +17,19 @@ export default {
         let power = ref(38);
 
         const upPower = () => {
-            console.log('Aumentar power ...');
+            // console.log('Aumentar power ...');
             power.value ++;
+        }
+
+        const downPower = () => {
+            // console.log('Disminuir power ...');
+            power.value --;
         }
 
         return {
             power,
             upPower,
+            downPower,
         };
     },
 }

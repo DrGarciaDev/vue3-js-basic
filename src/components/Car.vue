@@ -5,6 +5,7 @@
         <p>Model {{ model }}</p>
         <p>Potencia {{ power }}</p>
         <button @click="upPower">Aumentar potencia</button>
+        <button @click="downPowerFn">Disminuir potencia</button>
     </div>
 </template>
 
@@ -18,15 +19,23 @@ export default {
         },
         upPower: Function,
     },
-    setup(props) {
+    emits: ['downPower'],
+    setup(props, context) {
         const brand = 'Audi';
         const model = "A4";
 
-        console.log(props);
+        // console.log(props);
+        // console.log(context);
+        // de esta manera se pueden recibir y utilizar funciones recibidas con el 
+        // custom event emit 
+        const downPowerFn = () => {
+            context.emit('downPower')
+        };
 
         return {
             brand,
             model,
+            downPowerFn,
         };
     },
 };
