@@ -4,6 +4,7 @@
         <p>Marca {{ brand }}</p>
         <p>Model {{ model }}</p>
         <p>Potencia {{ power }}</p>
+        <button @click="upPower">Aumentar potencia</button>
     </div>
 </template>
 
@@ -15,12 +16,13 @@ export default {
             type: Number,
             default: 60,
         },
+        upPower: Function,
     },
     setup(props) {
         const brand = 'Audi';
         const model = "A4";
 
-        console.log(props.power);
+        console.log(props);
 
         return {
             brand,
